@@ -7,7 +7,7 @@ function cal(quote){ //quote 輸入的字串
   for(singleWord of quote){ //掃描每個單字
     sw=singleWord //縮寫
     //if遇到符號, else遇到數字就...
-    if(sw=="+"||sw=="-"||sw=="x"||sw=="/"||sw=="("||sw==")"){
+    if("+-x/()".includes(sw)){
       if(scan){ //if數字儲存器有文字
         strToArray.push(scan) //推上去前面存的數字
       }
