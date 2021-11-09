@@ -19,4 +19,4 @@ function cal(quote){
 }
 console.log(cal("2x(3+10)"))
 console.log(eval("2 * ( 3 + 10 )"))
-module.exports = cal //模組化 可忽略
+//module.exports = cal 模組化 可忽略
