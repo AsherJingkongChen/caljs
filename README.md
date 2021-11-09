@@ -70,7 +70,7 @@ function cal(quote){
   scan=""
   for(singleWord of quote){
     sw=singleWord
-    if(sw=="+"||sw=="-"||sw=="x"||sw=="/"||sw=="("||sw==")"){
+    if("+-x/()".includes(sw)){
       if(scan){
         strToArray.push(scan)
       }
@@ -80,6 +80,10 @@ function cal(quote){
     }else{
       scan+=sw
     }
+  }
+  final=strToArray[strToArray.length-1]
+  if("+-*/()".includes(final)){
+      strToArray.push(scan)
   }
   Str=strToArray.join(" ")
   return eval(Str)
