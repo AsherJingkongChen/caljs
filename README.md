@@ -6,7 +6,7 @@ function cal(quote){ //quote 輸入的字串
   scan="" //先宣告數字儲存器(字串形式)
   for(singleWord of quote){ //掃描每個單字
     sw=singleWord //縮寫
-    //if遇到符號, else遇到數字就...
+    //if單字是符號, else數字就...
     if("+-x/()".includes(sw)){
       if(scan){ //if數字儲存器有文字
         strToArray.push(scan) //推上去前面存的數字
@@ -18,7 +18,11 @@ function cal(quote){ //quote 輸入的字串
       scan+=sw  //數字儲存器從後面加上新的單字
     }
   }
-  //迴圈結束, 主陣列做好了
+  //迴圈結束
+  final=strToArray[strToArray.length-1] //取最後一個元素
+  if("+-*/()".includes(final)){ //如果最後一個元素沒抓到數字, 而是符號
+      strToArray.push(scan) //把數字抓回來
+  }
   Str=strToArray.join(" ")  //主陣列每個元素之間插入一個空格" "
   return eval(Str) //cal() 主函式回傳最後數字
 }
@@ -91,11 +95,13 @@ quote => string "2x(3+10)" 輸入字串
 strToArray => array 主陣列
 scan => string 數字儲存器
 singleWord / sw => string 單字
+final => string 主陣列最後的元素
 Str => string 加入空格後的字串
 ```
 ```javascript
 陣列.push(元素) -> 在陣列後面加上元素
 陣列.join(字串) -> 在陣列中每個元素之間插入字串並回傳新字串
+陣列或字串.includes(小字串) -> 如果陣列或字串中有小字串回傳true
 eval(特定格式字串) -> 四則運算後回傳數字
 ```
 <br></br>
