@@ -1,4 +1,4 @@
-## eval cal example in Node.js and mineflayer API
+## eval cal example in Node.js
 - 說明用程式碼
 ```javascript
 function cal(quote){ //quote 輸入的字串
